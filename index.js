@@ -3,9 +3,9 @@ import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 dotenv.config();
 import authRoute from './routes/auth.js'
-import usersRout from './routes/users.js'
-import hotelRoute from './routes/hotels.js'
-import roomRoute from './routes/room.js'
+import usersRoute from './routes/users.js'
+import hotelsRoute from './routes/hotels.js'
+import roomsRoute from './routes/rooms.js'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 
@@ -35,10 +35,11 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 
-app.use('/api/auth',authRoute);
-app.use('/api/user',usersRout);
-app.use('/api/hotels',hotelRoute);
-app.use('/api/room',roomRoute);
+
+app.use("/api/auth", authRoute);
+app.use("/api/users", usersRoute);
+app.use("/api/hotels", hotelsRoute);
+app.use("/api/rooms", roomsRoute);
 
 
 app.use((err,req,res,next)=>{
